@@ -51,6 +51,6 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: task-list_production
-  username: task-list 
+  database:  task-managementapp_production
+  username: task-managementapp_production 
   password: <%= ENV['TASK-LIST_DATABASE_PASSWORD'] %>
