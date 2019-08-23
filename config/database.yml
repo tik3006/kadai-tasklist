@@ -52,5 +52,5 @@ production:
   encoding: unicode
   pool: 5
   database:  task-managementapp_production
-  username: task-managementapp_production 
+  username: task-managementapp
   password: <%= ENV['TASK-LIST_DATABASE_PASSWORD'] %>
