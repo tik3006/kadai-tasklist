@@ -1,6 +1,7 @@
 <h1> id: <%= @task.id %>Task</h1>
 
-<p><%= @task.content %></p>
+<p>Task<%= @task.content %></p>
+<p>Status<%= @task.status %></p>
 
 <%= link_to'back to tasks' , tasks_path %>
 <%= link_to'edit task' , edit_task_path(@task) %>
