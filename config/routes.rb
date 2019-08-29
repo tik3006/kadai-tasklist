@@ -10,6 +10,6 @@ Rails.application.routes.draw do
    
    #ログイン用のルーティング
    get 'signup', to: 'users#new'
-   resources :users, only: [:index, :show, :new, :create]
+   resources :users, only: [:index,:new, :create]
    resources :tasks
 end
