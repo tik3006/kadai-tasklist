@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     #ログインが成功しているかを判定する
     if login(email, password)
       flash[:success] = 'ログインに成功しました。'
-      redirect_to @user
+      redirect_to  root_url
     else
       flash.now[:danger] = 'ログインに失敗しました。'
       render 'new'
