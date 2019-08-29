@@ -10,13 +10,12 @@
       </ul>
     </div>
   <% end %>
-  
+   <table class="table table-striped">
   <%= f.label :content, 'Task' %>
   <%= f.text_field :content %>
   
   <%= f.label :status, 'status' %>
   <%= f.text_field :status %>
-  
-
+  </table
   <%= f.submit 'Post' %>
 <% end %>

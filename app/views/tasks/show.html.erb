@@ -1,8 +1,16 @@
-<h1> id: <%= @task.id %>Task</h1>
-
-<p>Task<%= @task.content %></p>
-<p>Status<%= @task.status %></p>
-
+<div class="row">
+  <table class="table table-striped">
+  <thead>
+  <th>id</th>
+  <th>Task</th>
+  <th>Status</th>
+   
+   <tr>
+   <td><%= @task.id %></td>
+   <td><%= @task.content %></td>
+  <td><%= @task.status %></td>
+</div>
+</table>
 <%= link_to'back to tasks' , tasks_path %>
 <%= link_to'edit task' , edit_task_path(@task) %>
 <%= link_to'delete task', @task, method: :delete, data: { confirm: 'Are you OK?' } %>

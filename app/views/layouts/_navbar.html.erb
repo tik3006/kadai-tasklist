@@ -9,8 +9,8 @@
       <ul class="navbar-nav">
        <!-- ログインしている場合、ナビゲーションバーの表示を変更する -->
         <% if logged_in? %>
-              <li class="dropdown-divider"></li>
-              <li class="dropdown-item"><%= link_to 'Logout', logout_path, method: :delete %></li>
+          <li><a href="#" class="nav-item"><%= current_user.name %></li>
+          <li><%= link_to 'Logout', logout_path, method: :delete %></li>
             </ul>
           </li>
         <% else %>
