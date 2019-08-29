@@ -50,7 +50,7 @@ class TasksController < ApplicationController
     @task.destroy
     
     flash[:success] = 'task is destroy'
-    redirect_to tasks_url
+    redirect_to root_url
   end
   
   private
