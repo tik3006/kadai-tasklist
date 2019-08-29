@@ -32,11 +32,9 @@ class TasksController < ApplicationController
   end
 
   def edit
-    
   end
 
   def update
-   
     
     if @task.update(task_params)
       flash[:success] = 'your task is update'
@@ -65,7 +63,7 @@ class TasksController < ApplicationController
   end
    
    def correct_user
-    @tasks = current_user.tasks.find_by(id: params[:id])
+    @task = current_user.tasks.find_by(id: params[:id])
     unless @task
       redirect_to root_url
     end
