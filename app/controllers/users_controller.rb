@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show]
+  before_action :require_user_logged_in,only: [:index, :show]
 
   def index
     #ユーザーを降順で取得する
-    @users = User.order(id: :desc).page(params[:page]).per(25)
+    @users = User.order(id: :desc).page(params[:page])
   end
 
   def show
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   #ユーザー登録に成功した場合
     if @user.save
       flash[:success] = 'ユーザを登録しました。'
-      redirect_to @user
+      redirect_to login_path
   #ユーザー登録に失敗した場合  
     else
       flash.now[:danger] = 'ユーザの登録に失敗しました。'
@@ -32,7 +32,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-   
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 

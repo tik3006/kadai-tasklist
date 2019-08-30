@@ -1,18 +1,20 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :require_user_logged_in
-  before_action :correct_user, only: [:destroy]
+  before_action :correct_user, only: [:destroy,:show,:edit,:update]
   
   #すべてのタスクの取得表示
   def index
-    @tasks = Task.all
+    if logged_in?
+     @tasks = current_user.tasks.build  # form_with 用
+     @tasks = current_user.tasks.order(id: :desc).page(params[:page])
+     #@tasks = Task.all
+    end
   end
-
   
   def show
-    
+  
   end
-
  
   def new
     @task = Task.new
@@ -35,7 +37,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    
+    @task = current_user.tasks.build(task_params)
     if @task.update(task_params)
       flash[:success] = 'your task is update'
       redirect_to @task
@@ -48,7 +50,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     flash[:success] = 'task is destroy'
-    redirect_to root_url
+    redirect_back(fallback_location: root_path)
   end
   
   
